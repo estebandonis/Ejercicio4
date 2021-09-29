@@ -1,6 +1,6 @@
 import java.util.Random;
 
-public abstract class Combatiente {
+public class Combatiente {
     private String nombre;
     private int PuntosVida;
     private int PoderAtaque;
@@ -32,5 +32,7 @@ public abstract class Combatiente {
         PoderAtaque = poderAtaque;
     }
 
-    public abstract void habilidadEspecial();
+    public void habilidadEspecial(){
+        
+    }
 }
