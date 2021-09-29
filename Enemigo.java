@@ -1,3 +1,7 @@
+/**
+ * Clase base para crear enemigos
+ */
+
 public class Enemigo extends Combatiente{
     private String tipo;
     private Habilidades habilidad;
@@ -13,20 +17,36 @@ public class Enemigo extends Combatiente{
             this.tipo = "Fuego";
         }
     }
-
+    /**
+     * obtenemos el valor de tipo
+     * @return
+     */
     public String getTipo() {
         return tipo;
     }
+
+    /**
+     * Obtenemos la habilidad
+     * @return
+     */
     public Habilidades getHabilidad() {
         return habilidad;
     }
 
+    /**
+     * Utilizamos la habilidad especial
+     */
     public void habilidadEspecial(){
         Enemigo enemy = habilidad.usar(this);
         this.setPoderAtaque(enemy.getPoderAtaque());
         this.setPuntosVida(enemy.getPuntosVida());
     }
 
+    /**
+     * Utilizamos para atacar a los jugadores
+     * @param player
+     * @return
+     */
     public Jugador atacar(Jugador player){
         int cantidadVida = player.getPuntosVida();
         cantidadVida -= super.getPoderAtaque();
@@ -34,6 +54,9 @@ public class Enemigo extends Combatiente{
         return player;
     }
 
+    /**
+     * Los usamos para desplegar un mensaje
+     */
     public String toString(){
         return "'No dejen al jugador salir con vida'";
     }

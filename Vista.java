@@ -1,9 +1,17 @@
+/**
+ * Este metodo sirve para comunicarnos con el usuario
+ */
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Vista {
     Scanner scan = new Scanner(System.in);
 
+    /**
+     * Este metodo inicia el programa y define el jugador
+     * @return
+     */
     public String[] inicio(){
         String[] datos = new String[2];
         System.out.println("Bienvenidos combatientes");
@@ -22,6 +30,11 @@ public class Vista {
         return datos;
     }
 
+    /**
+     * Sirve para desplegar el menu de inicio
+     * @param turno
+     * @return numero de opcion que eligio el usuario
+     */
     public int menu(String turno){
         System.out.println("Turno de " + turno);
         System.out.println("Elija una opción:");
@@ -43,6 +56,11 @@ public class Vista {
         return option;//regresamos el valor convertido
     }
 
+    /**
+     * metodo que sirve para verificar que enemigo se va a atacar
+     * @param enemigos
+     * @return
+     */
     public String enemigoAAtacar(ArrayList<Enemigo> enemigos){
         String enemigoAAtacar = "";
         if (enemigos.size() == 1){
@@ -68,6 +86,11 @@ public class Vista {
         return enemigoAAtacar;
     }
 
+    /**
+     * Despliega las estadisticas del combate
+     * @param enemigos
+     * @param player
+     */
     public void desplegarEstadisticas(ArrayList<Enemigo> enemigos, Jugador player){
         for (int i = 0; i < enemigos.size(); i++){
             Enemigo enemy = enemigos.get(i);
@@ -82,9 +105,16 @@ public class Vista {
         System.out.println("Nombre del jugador: " + player.getNombre());
         System.out.println("Vida: " + player.getPuntosVida());
         System.out.println("Poder: " + player.getPoderAtaque());//Vamos extrayendo los datos de la base de datos y los vamos imprimiendo conforme los vamos extrayendo
+        System.out.println("Items: " + player.getItem().getCantidad());
+        System.out.println("Clase: " + player.getRol());
         System.out.println("---------------------------------");
     }
 
+    /**
+     * Despliega los mensajes de inicio
+     * @param enemigos
+     * @param player
+     */
     public void iniciar(ArrayList<Enemigo> enemigos, Jugador player){
         for (int i = 0; i < enemigos.size(); i++){
             Enemigo enemigo = enemigos.get(i);
@@ -93,6 +123,10 @@ public class Vista {
         System.out.println("Jugador dice: " + player);
     }
 
+    /**
+     * Despliega el perdedor de la batalla
+     * @param perdedor
+     */
     public void perdedor(String perdedor){
         if (perdedor.equalsIgnoreCase("jugador")){
             System.out.println("El perdedor fue el jugador");
@@ -102,6 +136,9 @@ public class Vista {
         }
     }
 
+    /**
+     * Despliega la despedida
+     */
     public void despedida(){
         System.out.println("Gracias por jugar");
     }

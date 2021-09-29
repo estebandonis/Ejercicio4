@@ -1,3 +1,7 @@
+/**
+ * Es la clase que usamos para el jugador
+ */
+
 import java.util.Random;
 
 public class Jugador extends Combatiente {
@@ -22,24 +26,44 @@ public class Jugador extends Combatiente {
         }
     }
 
+    /**
+     * Obtenemos el valor de rol
+     * @return
+     */
     public String getRol() {
         return Rol;
     }
 
+    /**
+     * Obtenemos el valor de item
+     * @return
+     */
     public Items getItem() {
         return item;
     }
 
+    /**
+     * Definimos el valor de item
+     * @param item
+     */
     public void setItem(Items item) {
         this.item = item;
     }
 
+    /**
+     * Utilizamos los items que tenemos
+     */
     public void habilidadEspecial(){
         Jugador jugador = item.usar(this);
         this.setPoderAtaque(jugador.getPoderAtaque());
         this.setPuntosVida(jugador.getPuntosVida());
     }
 
+    /**
+     * Utilizamos para atacar a los enemigos
+     * @param enemy
+     * @return
+     */
     public Enemigo atacar(Enemigo enemy){
         int cantidadVida = enemy.getPuntosVida();
         cantidadVida -= super.getPoderAtaque();
@@ -47,6 +71,9 @@ public class Jugador extends Combatiente {
         return enemy;
     }
 
+    /**
+     * Lo usamos para desplegar un mensaje
+     */
     public String toString(){
         return "'Iniciemos la batalla con valentia'";
     }
